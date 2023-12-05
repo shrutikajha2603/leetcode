@@ -1,15 +1,15 @@
 class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
-        vector<int> result; 
+        vector<int>r; 
         for(int i=0; i<nums.size(); i++){
-            int count=0;
+            int c=0;
             for(int j=0; j<nums.size(); j++){
-                if(nums[i]>nums[j]) count++;
+                if(nums[i]>nums[j]) c++;
             }
-            result.push_back(count);
+            r.push_back(c);
         }
-        return result;
+        return r;
 
     }
 };
