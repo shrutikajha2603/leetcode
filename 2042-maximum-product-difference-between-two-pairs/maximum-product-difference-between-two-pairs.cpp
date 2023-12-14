@@ -5,7 +5,6 @@ public:
         ranges::sort(nums);
         int small = nums[0]*nums[1];
         int large = nums[n-1]*nums[n-2];
-        int diff = large - small;
-        return diff;
+        return large - small;
     }
 };
