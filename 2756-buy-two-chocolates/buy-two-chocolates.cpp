@@ -11,13 +11,8 @@ public:
                 }
             }
         }
-       
         rem = money - ans;
-        if(rem>=0){
-        return rem;
-        }
-        else{
-            return money;
-        }
+        if(rem>=0) return rem;
+        else return money;
     }
 };
