@@ -12,7 +12,6 @@ public:
         int lenA = getLength(headA);
         int lenB = getLength(headB);
 
-        // Move the longer list's head to the equivalent starting position
         while (lenA > lenB) {
             headA = headA->next;
             lenA--;
@@ -23,13 +22,12 @@ public:
             lenB--;
         }
 
-        // Move both pointers until they meet or reach the end
         while (headA != headB) {
             headA = headA->next;
             headB = headB->next;
         }
 
-        return headA; // This is the intersected node or NULL if there's no intersection
+        return headA;
     }
 
 private:
