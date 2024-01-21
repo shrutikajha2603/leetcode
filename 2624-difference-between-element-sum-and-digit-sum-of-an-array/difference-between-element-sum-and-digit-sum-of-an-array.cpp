@@ -1,28 +1,15 @@
 class Solution {
 public:
-    int calculateElementSum(const vector<int>& nums) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        return sum;
-    }
-
-    int calculateDigitSum(int num) {
-        int sum = 0;
-        while (num > 0) {
-            sum += num % 10; 
-            num /= 10;      
-        }
-        return sum;
-    }
     int differenceOfSum(vector<int>& nums) {
-        int elementSum = calculateElementSum(nums);
-        int digitSum = 0;
-
-        for (int num : nums) {
-            digitSum += calculateDigitSum(num);
+        int esum = 0;
+        int digsum = 0;
+        for(int i = 0;i < nums.size();i++){
+            esum += nums[i];
+            while(nums[i] != 0){
+                digsum += nums[i]%10;
+                nums[i] = nums[i]/10;
+            }
         }
-        return abs(elementSum - digitSum);    
+        return abs(esum-digsum);
     }
 };
