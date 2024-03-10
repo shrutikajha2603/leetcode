@@ -11,18 +11,18 @@ public:
         int m =nums2.size();
         int las =-1;
         while(i<n && j<m){
-        if(nums1[i]==nums2[j] ){
-            if( las!=nums1[i]){   
-            ans.push_back(nums1[i]);
-            las=nums1[i];
+            if(nums1[i]==nums2[j] ){
+                if( las!=nums1[i]){   
+                ans.push_back(nums1[i]);
+                las=nums1[i];
+                }
+                i++;
+                j++; 
+            }else if(nums1[i]>nums2[j]){
+                j++;
+            }else {
+            i++;
             }
-            i++;
-            j++; 
-        }else if(nums1[i]>nums2[j]){
-            j++;
-        }else {
-            i++;
-        }
         }
 
        return ans;
