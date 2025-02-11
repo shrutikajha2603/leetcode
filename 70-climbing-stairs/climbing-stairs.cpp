@@ -1,21 +1,13 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        unordered_map<int, int> memo;
-        return climbStairsMemo(n, memo);
-    }
+        vector <int> dp(n+1, -1);
+        dp[0]=1;
+        dp[1]=1;
 
-private:
-    int climbStairsMemo(int n, unordered_map<int, int>& memo) {
-        if (n == 1) return 1;
-        if (n == 2) return 2;
-
-        if (memo.find(n) != memo.end()) {
-            return memo[n];
+        for(int i=2; i<=n; i++){
+            dp[i] = dp[i-1]+dp[i-2];
         }
-
-        int ways = climbStairsMemo(n - 1, memo) + climbStairsMemo(n - 2, memo);
-        memo[n] = ways;
-        return ways;
+        return dp[n];
     }
 };
