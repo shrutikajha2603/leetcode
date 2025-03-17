@@ -1,19 +1,24 @@
 class Solution {
+private:
+    int lower_bound(vector<int>nums, int low, int high, int target){
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(nums[mid]<target){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+        return low;
+    }
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        vector<int>ans(2,-1);
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]==target){
-                ans[0]=i;
-                break;
-            }
+        int low=0, high=nums.size()-1;
+        int start=lower_bound(nums,low, high, target);
+        int end=lower_bound(nums, low, high, target+1)-1;
+        if(start<nums.size() && nums[start]==target){
+            return {start,end};
         }
-        for (int i = nums.size() - 1; i >= 0; i--) {
-            if (nums[i] == target) {
-                ans[1] = i;
-                break;
-            }
-        }
-        return ans;
+        return{-1,-1};
     }
 };
