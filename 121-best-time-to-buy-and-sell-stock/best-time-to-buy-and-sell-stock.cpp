@@ -9,7 +9,8 @@ public:
                 buy=prices[i];
             }
 
-            profit=max(profit, prices[i]-buy);
+            int newProfit = prices[i] - buy;
+            profit = (profit > newProfit)? profit : newProfit;
         }
         return profit;
     }
